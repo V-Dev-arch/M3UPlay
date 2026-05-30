@@ -13,7 +13,7 @@ Modern • Lightweight • Responsive • User-Friendly
 
 </div>---
 
-📖 Overview
+## 📖Overview
 
 M3U-WEB-PLAYER is a lightweight web application designed to provide a smooth and organized playlist browsing experience. The project focuses on usability, clean design, and accessibility while keeping the interface straightforward and easy to navigate.
 
@@ -21,11 +21,11 @@ Whether you're using a desktop browser, a mobile device, or a TV browser, M3U-WE
 
 ---
 
-📸 Screenshots
+## 📷 Screenshots
 
 «Replace the image links below with your own screenshots after uploading them.»
 
-🏠 Home
+##🏠 Home
 
 <div align="center">
 <img src="" alt="Home Screenshot" width="90%">
@@ -43,7 +43,7 @@ Whether you're using a desktop browser, a mobile device, or a TV browser, M3U-WE
 <img src="" alt="Dark Theme Screenshot" width="90%">
 </div>---
 
-✨ Features
+## Features
 
 📂 Playlist Loading
 
