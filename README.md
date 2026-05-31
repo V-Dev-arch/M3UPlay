@@ -222,7 +222,7 @@ If you would like to contribute:
 - New interface enhancements
 
 ---
-## VIST NOW
+## VISIT NOW
 
 https://v-dev-arch.github.io/M3U-WEB-PLAYER-/
 
