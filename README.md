@@ -29,7 +29,7 @@ MOBILE
 
 
 
-<div align="center"><img src="https://files.catbox.moe/l3j45a.jpg" width="950"></div>---
+<div align="center"><img src="https://files.catbox.moe/l3j45a.jpg" width="400"></div>---
 
 
 
