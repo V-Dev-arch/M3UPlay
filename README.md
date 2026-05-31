@@ -13,7 +13,7 @@ Modern • Lightweight • Responsive • User-Friendly
 
 </div>---
 
-## 📖Overview
+## Overview
 
 M3U-WEB-PLAYER is a lightweight web application designed to provide a smooth and organized playlist browsing experience. The project focuses on usability, clean design, and accessibility while keeping the interface straightforward and easy to navigate.
 
@@ -21,11 +21,11 @@ Whether you're using a desktop browser, a mobile device, or a TV browser, M3U-WE
 
 ---
 
-## 📷 Screenshots
+##  Screenshots
 
 «Replace the image links below with your own screenshots after uploading them.»
 
-##🏠 Home
+## Home
 
 <div align="center">
 <img src="" alt="Home Screenshot" width="90%">
@@ -59,20 +59,20 @@ Whether you're using a desktop browser, a mobile device, or a TV browser, M3U-WE
 - Clean channel presentation.
 - Easy navigation through playlists.
 
-##🏷️ Category Support
+## Category Support
 
 - Automatic category organization.
 - Browse channels by category.
 - Improved playlist management.
 - Faster content discovery.
 
-##🔎 Smart Search
+## Smart Search
 
 - Instantly search channels.
 - Quickly locate content inside large playlists.
 - Simple and responsive search experience.
 
-##🌙 Dark Theme
+## Dark Theme
 
 - Eye-friendly interface.
 - Comfortable viewing during long sessions.
@@ -86,14 +86,13 @@ Whether you're using a desktop browser, a mobile device, or a TV browser, M3U-WE
 - Adaptive user interface.
 - Consistent experience across devices.
 
-##📺 TV Browser Compatibility
+## TV Browser Compatibility
 
 - Can be used on TV web browsers.
 - Works well with virtual mouse solutions.
 - Suitable for larger screens.
 - Comfortable navigation experience.
-##
-🖱️ Mouse & Touch Optimized
+## Mouse & Touch Optimized
 
 - Designed for mouse interaction.
 - Touch-friendly controls.
@@ -117,7 +116,7 @@ Whether you're using a desktop browser, a mobile device, or a TV browser, M3U-WE
 
 ## Application Sections
 
-##🏠 Home
+## Home
 
 The landing section of the application providing access to the player and navigation features.
 
@@ -132,7 +131,7 @@ Displays playlist channels along with:
 
 ---
 
-##🚀 Getting Started
+## Getting Started
 
 Load Playlist from URL
 
@@ -152,7 +151,7 @@ Load Playlist from File
 
 ---
 
-##💻 Compatibility
+## Compatibility
 
 You just need a good browsr that's it!!
 ---
@@ -209,7 +208,7 @@ If you would like to contribute:
 
 ---
 
-##📝 Future Improvements
+## Future Improvements
 
 - Additional customization options
 - Enhanced playlist management
@@ -219,7 +218,7 @@ If you would like to contribute:
 
 ---
 
-##⭐ Support
+## Support
 
 If you find this project useful, consider giving it a star.
 
