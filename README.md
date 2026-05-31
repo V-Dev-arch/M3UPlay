@@ -31,6 +31,7 @@ MOBILE
 
 <div align="center"><img src="https://files.catbox.moe/l3j45a.jpg" width="209"></div>---
 
+Tv/Computer
 
 <div align="center"><img src="https://files.catbox.moe/18nvj1.png" width="950"></div>---
 
