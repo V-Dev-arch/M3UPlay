@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="eFSHsqjQ4sTzbKaWFenSl2_jcV535192T5CoYSbnAzg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>M3U WEB PLAYER — BY V-Dev-arch</title>
+
+  <meta name="description" content="M3U Web Player by Varinanger — Upload and play M3U playlists in your browser. Supports .m3u8 and .ts streams with categories and search." />
+
+  <!-- HLS.js for .m3u8 playback -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0f14;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px;
+      background: #111822;
+      border-bottom: 2px solid #00d9ff;
+    }
+
+    header h1 {
+      font-size: 18px;
+      margin: 0;
+      flex: 1;
+      color: #00d9ff;
+    }
+
+    nav button {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+
+    nav button:hover { background: rgba(0, 217, 255, 0.2); }
+    nav button.active { background: #00d9ff; color: black; font-weight: bold; }
+
+    main { padding: 20px; }
+    section { display: none; }
+    section.active { display: block; }
+
+    .card { background: #111822; padding: 15px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 0 10px rgba(0,217,255,0.15); }
+
+    input, select {
+      width: 100%; padding: 10px; margin-top: 8px; margin-bottom: 10px; border-radius: 8px;
+      border: 1px solid #00d9ff55; outline: none; background: #0b0f14; color: white;
+    }
+
+    button.action {
+      background: #00d9ff; color: black; font-weight: bold; padding: 10px 14px; border: none; border-radius: 8px; cursor: pointer; transition: 0.2s;
+    }
+    button.action:hover { background: white; }
+
+    #channelListChannels div, #channelListCategories div, #channelListSearch div {
+      padding: 10px; border-bottom: 1px solid #222; cursor: pointer; display: flex; align-items: center; gap: 10px;
+    }
+    #channelListChannels div:hover, #channelListCategories div:hover, #channelListSearch div:hover { background: rgba(0,217,255,0.15); }
+
+    video { width: 100%; border-radius: 12px; margin-top: 10px; background: black; }
+
+    .warning { color: #ffcc00; font-size: 13px; margin-top: 5px; }
+    .status { font-size: 14px; margin-top: 10px; color: #00ff99; }
+
+    #failedBox {
+      display: none; text-align: center; padding: 40px; background: #0b0f14; border-radius: 12px; border: 1px solid #ff4444; margin-top: 15px;
+    }
+    #failedBox svg { width: 60px; height: 60px; fill: #ff4444; margin-bottom: 10px; }
+    #failedBox p { margin: 0; font-size: 18px; color: #ff4444; }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>M3U WEB PLAYER</h1>
+  <nav>
+    <button class="tab active" onclick="showTab('home')">Home</button>
+    <button class="tab" onclick="showTab('playlists')">Playlists</button>
+    <button class="tab" onclick="showTab('search')">Search</button>
+    <button class="tab" onclick="showTab('categories')">Categories</button>
+    <button class="tab" onclick="showTab('channels')">Channels</button>
+    <button class="tab" onclick="showTab('contact')">Contact</button>
+  </nav>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section id="home" class="active">
+    <div class="card">
+      <h2>Welcome</h2>
+      <p>This is a browser-based M3U Web Player.</p>
+      <p><b>Supported Stream Formats:</b></p>
+      <ul>
+        <li>.m3u8 (HLS Live Streams)</li>
+        <li>.ts (Transport Stream Links)</li>
+      </ul>
+      <p class="warning">Playlist works only while this website is open. Closing or refreshing resets everything.</p>
+    </div>
+    <div class="card">
+      <h2>Player</h2>
+      <video id="video" controls></video>
+      <div id="failedBox">
+        <svg viewBox="0 0 64 64">
+          <path d="M20 40c-6 0-10-4-10-9s4-9 10-9c2 0 4 1 6 2 2-5 7-8 13-8 8 0 15 6 15 14 0 7-5 10-12 10H20z"/>
+        </svg>
+        <p>COULD NOT CONNECT TO STREAM</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYLISTS -->
+  <section id="playlists">
+    <div class="card">
+      <h2>Playlists</h2>
+      <p class="warning">Only one playlist can be active at a time. Reset before loading a new one.</p>
+      <div id="playlistStatus">
+        <p>No playlist loaded. Add one below:</p>
+        <label>Upload M3U File</label>
+        <input type="file" id="fileInput" accept=".m3u"/>
+        <label>Paste Playlist URL</label>
+        <input type="text" id="urlInput" placeholder="Paste your M3U URL here"/>
+        <button class="action" onclick="loadFromURL()">Load URL</button>
+      </div>
+      <div class="status" id="activePlaylist"></div>
+      <button class="action" onclick="resetAll()">Reset Playlist</button>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <section id="search">
+    <div class="card">
+      <h2>Search Channels</h2>
+      <input type="text" id="searchBox" placeholder="Search channel name..." oninput="renderChannels('search')"/>
+    </div>
+    <div class="card">
+      <h2>Search Results</h2>
+      <div id="channelListSearch"></div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories">
+    <div class="card">
+      <h2>Categories</h2>
+      <select id="categorySelect" onchange="renderChannels('categories')">
+        <option value="all">All Categories</option>
+      </select>
+    </div>
+    <div class="card">
+      <h2>Channels in Category</h2>
+      <div id="channelListCategories"></div>
+    </div>
+  </section>
+
+  <!-- CHANNELS -->
+  <section id="channels">
+    <div class="card">
+      <h2>Channels</h2>
+      <div id="channelListChannels"></div>
+    </div>
+  </section>
+
+ <!-- CONTACT -->
+<section id="contact">
+  <div class="card">
+    <h2>Contact</h2>
+    <p>If you found a bug or want to suggest improvements</p>
+
+    <footer>
+      <a href="https://github.com/V-Dev-arch/M3U-WEB-PLAYER-" target="_blank">
+        CLICK HERE
+      </a>
+    </footer>
+  </div>
+</section>
+</main>
+
+<script>
+let channels = [];
+let hls;
+
+function showTab(tabId) {
+  document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+  document.getElementById(tabId).classList.add("active");
+  document.querySelectorAll(".tab").forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+}
+function showTabManual(tabId) {
+  document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+  document.getElementById(tabId).classList.add("active");
+}
+
+document.getElementById("fileInput").addEventListener("change", function(e) {
+  if (channels.length > 0) { alert("Reset current playlist before loading a new one."); return; }
+  const file = e.target.files[0];
+  if (!file) return;
+  document.getElementById("activePlaylist").innerText = file.name + " — Loaded and Active ✔";
+  const reader = new FileReader();
+  reader.onload = function() { parseM3U(reader.result); };
+  reader.readAsText(file);
+});
+
+function loadFromURL() {
+  if (channels.length > 0) { alert("Reset current playlist before loading a new one."); return; }
+  const url = document.getElementById("urlInput").value.trim();
+  if (!url) return alert("Enter a valid URL.");
+  fetch(url).then(res => res.text()).then(data => {
+    document.getElementById("activePlaylist").innerText = "Playlist URL — Loaded and Active ✔";
+    parseM3U(data);
+  }).catch(()=> alert("Failed to load playlist URL."));
+}
+
+function parseM3U(text) {
+  const lines = text.split("\n");
+  channels = [];
+  let current = {};
+  lines.forEach(line => {
+    line = line.trim();
+    if (line.startsWith("#EXTINF")) {
+      let name = line.split(",").pop().trim();
+      let group = (line.match(/group-title="([^"]+)"/) || [])[1] || "Unsorted";
+      let logo = (line.match(/tvg-logo="([^"]+)"/) || [])[1] || "";
+      current = { name, group, logo };
+    } else if (line.startsWith("http")) {
+      if (line.endsWith(".m3u8") || line.endsWith(".ts")) { current.url = line; channels.push(current); }
+    }
+  });
+  populateCategories();
+  renderChannels('channels');
+  renderChannels('categories');
+  renderChannels('search');
+}
+
+function populateCategories() {
+  const select = document.getElementById("categorySelect");
+  select.innerHTML = `<option value="all">All Categories</option>`;
+  [...new Set(channels.map(c => c.group))].forEach(cat => {
+    let opt = document.createElement("option");
+    opt.value = cat; opt.textContent = cat; select.appendChild(opt);
+  });
+}
+
+function renderChannels(section = "channels") {
+  const search = document.getElementById("searchBox").value.toLowerCase();
+  const category = document.getElementById("categorySelect").value;
+
+  let targetDiv;
+  if(section === "channels") targetDiv = document.getElementById("channelListChannels");
+  else if(section === "categories") targetDiv = document.getElementById("channelListCategories");
+  else if(section === "search") targetDiv = document.getElementById("channelListSearch");
+  else targetDiv = document.getElementById("channelListChannels");
+
+  targetDiv.innerHTML = "";
+
+  channels
+    .filter(c => c.name.toLowerCase().includes(search))
+    .filter(c => section === "categories" ? (category === "all" || c.group === category) : true)
+    .forEach(ch => {
+      let div = document.createElement("div");
+      div.style.display = "flex";
+      div.style.alignItems = "center";
+      div.style.gap = "10px";
+
+      if (ch.logo) {
+        let img = document.createElement("img");
+        img.src = ch.logo;
+        img.style.width = "35px";
+        img.style.height = "35px";
+        img.style.borderRadius = "6px";
+        div.appendChild(img);
+      }
+
+      let text = document.createElement("span");
+      text.textContent = ch.name;
+      div.appendChild(text);
+
+      div.onclick = () => {
+        showTabManual("home");
+        playChannel(ch.url);
+      };
+
+      targetDiv.appendChild(div);
+    });
+}
+
+function playChannel(url){
+  const video=document.getElementById("video");
+  const failedBox=document.getElementById("failedBox");
+  failedBox.style.display="none";
+  if(hls){ hls.destroy(); hls=null; }
+
+  let failedTimeout;
+
+  if(url.endsWith(".m3u8") && Hls.isSupported()){
+    hls=new Hls();
+    hls.loadSource(url);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.ERROR,()=>{ clearTimeout(failedTimeout); failedTimeout=setTimeout(()=>{showPlaybackFailed();},3000);});
+  }else{
+    video.src=url;
+    failedTimeout=setTimeout(()=>{ if(video.readyState<3) showPlaybackFailed(); },3000);
+  }
+
+  video.play().catch(()=>{ clearTimeout(failedTimeout); showPlaybackFailed(); });
+}
+
+function showPlaybackFailed(){ document.getElementById("failedBox").style.display="block"; }
+
+function resetAll(){
+  channels=[];
+  document.getElementById("channelListChannels").innerHTML="";
+  document.getElementById("channelListCategories").innerHTML="";
+  document.getElementById("channelListSearch").innerHTML="";
+  document.getElementById("categorySelect").innerHTML=`<option value="all">All Categories</option>`;
+  document.getElementById("activePlaylist").innerText="";
+  document.getElementById("fileInput").value="";
+  document.getElementById("urlInput").value="";
+  document.getElementById("video").src="";
+  document.getElementById("failedBox").style.display="none";
+  alert("Playlist reset complete.");
+}
+</script>
+</body>
+</html>
