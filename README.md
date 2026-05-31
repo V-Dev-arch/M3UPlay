@@ -1,4 +1,4 @@
-<div align="center">📺 M3U-WEB-PLAYER
+<div align="center"> # M3U-WEB-PLAYER
 
 Modern • Lightweight • Responsive • User-Friendly
 
@@ -52,47 +52,47 @@ Whether you're using a desktop browser, a mobile device, or a TV browser, M3U-WE
 - Quick playlist importing.
 - User-friendly loading process.
 
-📺 Channel Browser
+## Channel Browser
 
 - Browse channels in an organized interface.
 - Display channel logos when available.
 - Clean channel presentation.
 - Easy navigation through playlists.
 
-🏷️ Category Support
+##🏷️ Category Support
 
 - Automatic category organization.
 - Browse channels by category.
 - Improved playlist management.
 - Faster content discovery.
 
-🔎 Smart Search
+##🔎 Smart Search
 
 - Instantly search channels.
 - Quickly locate content inside large playlists.
 - Simple and responsive search experience.
 
-🌙 Dark Theme
+##🌙 Dark Theme
 
 - Eye-friendly interface.
 - Comfortable viewing during long sessions.
 - Modern dark design.
 - Reduced visual strain.
 
-📱 Responsive Design
+## Responsive Design
 
 - Optimized for desktop browsers.
 - Mobile-friendly layout.
 - Adaptive user interface.
 - Consistent experience across devices.
 
-📺 TV Browser Compatibility
+##📺 TV Browser Compatibility
 
 - Can be used on TV web browsers.
 - Works well with virtual mouse solutions.
 - Suitable for larger screens.
 - Comfortable navigation experience.
-
+##
 🖱️ Mouse & Touch Optimized
 
 - Designed for mouse interaction.
@@ -100,14 +100,14 @@ Whether you're using a desktop browser, a mobile device, or a TV browser, M3U-WE
 - Smooth navigation.
 - Simple user experience.
 
-🎮 Built-In Navigation System
+🎮 Built-In Navigation System 
 
 - Integrated navigation structure.
 - Easy movement between sections.
 - Clean user workflow.
 - Designed for convenience and accessibility.
 
-📞 Contact Section
+## Contact Section
 
 - Dedicated contact page.
 - Feedback and communication area.
@@ -115,13 +115,13 @@ Whether you're using a desktop browser, a mobile device, or a TV browser, M3U-WE
 
 ---
 
-🏗️ Application Sections
+## Application Sections
 
-🏠 Home
+##🏠 Home
 
 The landing section of the application providing access to the player and navigation features.
 
-📺 Channels
+## Channels
 
 Displays playlist channels along with:
 
@@ -130,13 +130,9 @@ Displays playlist channels along with:
 - Categories
 - Organized browsing experience
 
-📞 Contact
-
-Provides a simple way to reach the developer or obtain project information.
-
 ---
 
-🚀 Getting Started
+##🚀 Getting Started
 
 Load Playlist from URL
 
@@ -156,22 +152,12 @@ Load Playlist from File
 
 ---
 
-💻 Compatibility
+##💻 Compatibility
 
-Platform| Supported
-Windows| ✅
-Linux| ✅
-Android| ✅
-iOS| ✅
-Desktop Browsers| ✅
-Mobile Browsers| ✅
-TV Browsers| ✅
-Mouse Navigation| ✅
-Touch Navigation| ✅
-
+You just need a good browsr that's it!!
 ---
 
-🛠️ Technologies Used
+## Technologies Used
 
 - HTML5
 - CSS3
@@ -179,7 +165,7 @@ Touch Navigation| ✅
 
 ---
 
-🎯 Project Goals
+##🎯 Project Goals
 
 - Provide a clean M3U playlist browsing experience.
 - Keep the interface lightweight and fast.
@@ -189,7 +175,7 @@ Touch Navigation| ✅
 
 ---
 
-⚠️ Important Disclaimer
+# Important Disclaimer
 
 This Project Is a Media Player Only
 
@@ -210,7 +196,7 @@ The developer is not responsible for any third-party content accessed through us
 
 ---
 
-🤝 Contributing
+## Contributing
 
 Contributions, suggestions, and improvements are welcome.
 
@@ -223,7 +209,7 @@ If you would like to contribute:
 
 ---
 
-📝 Future Improvements
+##📝 Future Improvements
 
 - Additional customization options
 - Enhanced playlist management
@@ -233,7 +219,7 @@ If you would like to contribute:
 
 ---
 
-⭐ Support
+##⭐ Support
 
 If you find this project useful, consider giving it a star.
 
