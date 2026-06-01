@@ -23,7 +23,6 @@ Whether you're using a desktop browser, a mobile device, or a TV browser, M3U-WE
 
 ##  Screenshots
 
-«Replace the image links below with your own screenshots after uploading them.»
 
 MOBILE 
 
