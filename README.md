@@ -15,7 +15,7 @@ Modern • Lightweight • Responsive • User-Friendly
 
 ## Overview
 
-M3U-WEB-PLAYER is a lightweight web application designed to provide a smooth and organized playlist browsing experience. The project focuses on usability, clean design, and accessibility while keeping the interface straightforward and easy to navigate.
+M3UPlay is a lightweight web application designed to provide a smooth and organized playlist browsing experience. The project focuses on usability, clean design, and accessibility while keeping the interface straightforward and easy to navigate.
 
 Whether you're using a desktop browser, a mobile device, or a TV browser, M3U-WEB-PLAYER provides a consistent experience for browsing and managing your own playlists.
 
@@ -151,7 +151,7 @@ When you will refresh the page all the data will be cleared automaticaly.
 
 Load Playlist from URL
 
-1. Open M3U-WEB-PLAYER.
+1. Open M3UPlay
 2. Select the URL loading option.
 3. Enter your playlist URL.
 4. Load the playlist.
@@ -159,7 +159,7 @@ Load Playlist from URL
 
 Load Playlist from File
 
-1. Open M3U-WEB-PLAYER.
+1. Open M3UPlay
 2. Select the file upload option.
 3. Choose an M3U playlist file.
 4. Wait for processing.
@@ -194,7 +194,7 @@ You just need a good browsr that's it!!
 
 This Project Is a Media Player Only
 
-M3U-WEB-PLAYER is designed solely as a playlist player and browser.
+M3UPlay is designed solely as a playlist player and browser.
 
 The project:
 
@@ -235,7 +235,7 @@ If you would like to contribute:
 ---
 ## VISIT NOW
 
-https://v-dev-arch.github.io/M3U-WEB-PLAYER-/
+m3uplay.xo.je
 
 ## Support
 
@@ -247,6 +247,6 @@ Your support helps encourage future development and improvements.
 
 <div align="center">Made with ❤️ using HTML, CSS & JavaScript
 
-M3U-WEB-PLAYER
+M3UPlay
 
 </div>
